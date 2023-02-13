@@ -1,0 +1,2300 @@
+<template>
+  <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+    <div class="app-header header-shadow">
+      <div class="app-header__logo">
+        <div class=""><img src="../../assets/logo.png" width="190px"></div>
+      </div>
+      <div class="app-header__mobile-menu">
+        <div>
+          <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div class="app-header__menu">
+        <span>
+          <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+            <span class="btn-icon-wrapper">
+              <i class="fa fa-ellipsis-v fa-w-6"></i>
+            </span>
+          </button>
+        </span>
+      </div>    
+      <div class="app-header__content">
+        <div class="app-header-right">
+          <div class="header-btn-lg pr-0">
+            <div class="widget-content p-0">
+              <div class="widget-content-wrapper">
+                <div class="widget-content-right header-user-info ml-3">
+                  <router-link to="/"><button type="button" class="btn btn-sm show-toastr-example">
+                    <img src="../../assets/logout.png" class="logout"><br>
+                    <span>Logout</span>
+                  </button></router-link>
+                </div>
+              </div>
+            </div>
+          </div>        
+        </div>
+      </div>
+    </div>        
+    <div class="ui-theme-settings">
+      <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
+        <i class="fa fa-cog fa-w-16 fa-spin fa-2x"></i>
+      </button>
+    </div>        
+    <div class="app-main">
+      <div class="app-sidebar sidebar-shadow">
+        <div class="app-header__logo">
+          <div class="logo-src"></div>
+          <div class="header__pane ml-auto">
+            <div>
+              <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                <span class="hamburger-box">
+                  <span class="hamburger-inner"></span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="app-header__mobile-menu">
+          <div>
+            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div class="app-header__menu">
+          <span>
+            <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+              <span class="btn-icon-wrapper">
+                <i class="fa fa-ellipsis-v fa-w-6"></i>
+              </span>
+            </button>
+          </span>
+        </div>    
+        <div class="scrollbar-sidebar mt-4">
+          <div class="app-sidebar__inner">
+            <ul class="vertical-nav-menu">
+              <li>
+                <router-link to="/studynewdash" class="">
+                    NEW
+                </router-link>
+              </li><br>
+              <li>
+                <router-link to="/studyondash" class="">
+                    ONGOING
+                </router-link>
+              </li><br>
+              <li>
+                <router-link to="/studycompdash" class="">
+                    COMPLETED
+                </router-link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>    
+      <div class="app-main__outer">
+        <div class="app-main__inner">
+          <div class="row bg-light rounded">
+            <div class="col-12" style="display: none;">
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <router-link class="nav-link active" to="#">Draft Study Plan</router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link class="nav-link text-dark" to="/studyfinalplanast">Final Study Plan</router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link class="nav-link text-dark" to="/studyallocateast">Allocate Study personnel</router-link>
+                </li>
+                <li class="nav-item"> 
+                  <router-link class="nav-link text-dark" to="/studyschdast">Study Schedule</router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link class="nav-link text-dark" to="/studydataast">Study Data</router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link class="nav-link text-dark" to="/studycommentast">Comments</router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link class="nav-link text-dark" to="/studyreportast">Final Report</router-link>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-12">
+              <h6 class="text-center mt-3"><u>DRAFT STUDY PLAN</u></h6>
+              <h6 class="text-center mt-3">STUDY TITLE</h6>
+              <center><textarea class="form-control mt-3 w-75 no-bord text-center" v-model="title1"></textarea></center>
+              <center><input type="text" class="form-control mt-3 w-50 no-bord text-center" v-model="title2"></center>
+              <center><input type="text" class="form-control mt-3 w-50 no-bord text-center" v-model="study_no" placeholder="Study No."></center>
+              <center><input type="text" class="form-control mt-3 w-50 no-bord text-center" v-model="study_code" placeholder="Study Code"></center>
+              <h6 class="text-center mt-3">STUDY DIRECTOR</h6>
+              <center><input type="text" class="form-control mt-3 w-50 no-bord text-center" v-model="study_dir"></center>
+              <h6 class="text-center mt-3">SPONSOR</h6>
+              <center><textarea class="form-control mt-3 w-50 no-bord text-center" v-model="sponser"></textarea></center>
+              <h6 class="text-center mt-3">TEST FACILITY</h6>
+              <p class="text-center mt-3">LIVEON BIOLABS PRIVATE LIMITED<br>
+                                          PLOT NO. 46 & 47, II PHASE, WATER TANK ROAD<br>
+                                          KIADB INDUSTRIAL AREA, ANTHARASANAHALLI<br>
+                                          TUMAKURU-572106, KARNATAKA,<br>
+                                          INDIA</p>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true">     
+                  <span class="title">1. OBJECTIVE&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseOne" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      The objective of this toxicity study is to assess the potential <input type="text" class="form-control no-bord d-inline w-50" v-model="obj" placeholder="Test Item Name"> by injecting both polar extract (i.e., by slow bolus intravenous injection) for single administration and non-polar extract (i.e., by slow bolus intraperitoneal injection) for single administration. Also, this test provides information on health hazards likely to be arise from acute exposure by the intended clinical route in humans.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true">     
+                  <span class="title">2. STUDY DETAILS&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">  
+                    <div class="col-12 mt-2 mb-3">
+                      <table class="table table-bordered">
+                        <tbody>
+                          <tr>
+                            <td>Study Title</td>
+                            <td><input type="text" class="form-control no-bord" v-model="study_title1"></td>
+                          </tr>
+                          <tr>
+                            <td>Study Number</td>
+                            <td><input type="text" class="form-control no-bord" v-model="study_no1"></td>
+                          </tr>
+                          <tr>
+                            <td>Study Code</td>
+                            <td><input type="text" class="form-control no-bord" v-model="study_code1"></td>
+                          </tr>
+                          <tr>
+                            <td>ULR No.</td>
+                            <td><input type="text" class="form-control no-bord" v-model="ulr_no1"></td>
+                          </tr>
+                          <tr>
+                            <td>Sponsor</td>
+                            <td><input type="text" class="form-control no-bord" v-model="sponsor1"></td>
+                          </tr>
+                          <tr>
+                            <td>Test Facility</td>
+                            <td>LIVEON BIOLABS PRIVATE LIMITED Plot No. 46 & 47, II Phase, Water Tank Road, KIADB Industrial Area, Antharasanahalli, Tumakuru – 572106, Karnataka, India.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true">     
+                  <span class="title">3. STUDY RESPONSIBILITIES&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseThree" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      <table class="table table-bordered">
+                        <tbody>
+                          <tr>
+                            <td>Study Director</td>
+                            <td><input type="text" class="form-control no-bord" v-model="study_director1"></td>
+                          </tr>
+                          <tr>
+                            <td>Study Veterinarian</td>
+                            <td><input type="text" class="form-control no-bord" v-model="study_vet1"></td>
+                          </tr>
+                          <tr>
+                            <td>Sponsor Representative</td>
+                            <td><input type="text" class="form-control no-bord" v-model="sponsor_rep1"></td>
+                          </tr>
+                          <tr>
+                            <td>Monitoring Scientist</td>
+                            <td><input type="text" class="form-control no-bord" v-model="monitor1"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true">     
+                  <span class="title">4. STUDY SCHEDULE&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFour" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      <table class="table table-bordered">
+                        <tbody>
+                          <tr>
+                            <td>Study Initiation Date</td>
+                            <td><input type="text" class="form-control no-bord" v-model="study_start_date"></td>
+                          </tr>
+                          <tr>
+                            <td>Experiment Start Date</td>
+                            <td><input type="text" class="form-control no-bord" v-model="exp_start_date"></td>
+                          </tr>
+                          <tr>
+                            <td>Acclimatization Period</td>
+                            <td><input type="text" class="form-control no-bord" v-model="acc"></td>
+                          </tr>
+                          <tr>
+                            <td>Treatment Start Date</td>
+                            <td><input type="text" class="form-control no-bord" v-model="treat_start_date"></td>
+                          </tr>
+                          <tr>
+                            <td>Experiment End Date</td>
+                            <td><input type="text" class="form-control no-bord" v-model="exp_end_date"></td>
+                          </tr>
+                          <tr>
+                            <td>Draft Report to Sponsor</td>
+                            <td><input type="text" class="form-control no-bord" v-model="draft_rep"></td>
+                          </tr>
+                          <tr>
+                            <td>Study Completion Date</td>
+                            <td><input type="text" class="form-control no-bord" v-model="study_end_date"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true">     
+                  <span class="title">5. ABBREVIATIONS AND SYMBOLS&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFive" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2">
+                      <table class="table table-bordered">
+                        <tbody>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short1"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full1"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short2"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full2"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short3"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full3"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short4"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full4"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short5"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full5"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short6"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full6"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short7"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full7"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short8"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full8"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short9"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full9"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short10"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full10"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short11"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full11"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short12"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full12"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short13"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full13"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short14"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full14"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short15"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full15"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short16"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full16"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short17"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full17"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short18"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full18"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short19"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full19"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short20"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full20"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short21"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full21"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="short22"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="full22"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p class="mt-2 mb-3"><b>Note:</b> The additional Abbreviations and symbols (if any) will be provided in the Study Report</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true">     
+                  <span class="title">6. STUDY COMPLIANCE&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseSeven" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">  
+                    <div class="col-12 mt-2 mb-3">
+                      <p>This study will be performed in compliance with the following:
+                        <li>ISO/IEC 17025:2017, General Requirements for the Competence of Testing and Calibration Laboratories.</li>
+                        <li>OECD Principles of GLP for testing of chemicals as specified by international [(C (97)186/Final] legislation.</li>
+                        <li>The Standard Operating Procedures of Test Facility and the mutually agreed Study Plan.</li>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true">     
+                  <span class="title">7. STATEMENT OF QUALITY ASSURANCE UNIT&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseSix" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      <p>This is to state that the following study was inspected by Quality Assurance
+                      Unit of Liveon Biolabs Private Limited in compliance with OECD Principles of
+                      GLP for testing of chemicals as specified by international [(C (97)186/Final]
+                      legislation and ISO/IEC 17025:2017.</p>
+                      <p>The study phases were inspected and findings reported to the TFM and SD on the date shown below:</p>
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th rowspan="3">Sl. No.</th>
+                            <th rowspan="3">Inspection Phase</th>
+                            <th colspan="3">Dates</th>
+                          </tr>
+                          <tr>
+                            <th>Inspection</th>
+                            <th colspan="2">Reporting To</th>
+                          </tr>
+                          <tr>
+                            <th></th>
+                            <th>TFM</th>
+                            <th>SD</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>Draft Study Plan</td>
+                            <td>18/11/2022</td>
+                            <td>18/11/2022</td>
+                            <td>18/11/2022</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td>Final Study Plan</td>
+                            <td>18/11/2022</td>
+                            <td>18/11/2022</td>
+                            <td>18/11/2022</td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>Acclimatization</td>
+                            <td>18/11/2022</td>
+                            <td>18/11/2022</td>
+                            <td>18/11/2022</td>
+                          </tr>
+                          <tr>
+                            <td>4</td>
+                            <td>Test Item Extraction</td>
+                            <td>18/11/2022</td>
+                            <td>18/11/2022</td>
+                            <td>18/11/2022</td>
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td>Administration</td>
+                            <td>18/11/2022</td>
+                            <td>18/11/2022</td>
+                            <td>18/11/2022</td>
+                          </tr>
+                          <tr>
+                            <td>6</td>
+                            <td>Draft Study Report</td>
+                            <td>18/11/2022</td>
+                            <td>18/11/2022</td>
+                            <td>18/11/2022</td>
+                          </tr>
+                          <tr>
+                            <td>7</td>
+                            <td>Final Study Plan</td>
+                            <td>18/11/2022</td>
+                            <td>18/11/2022</td>
+                            <td>18/11/2022</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <p>Inspections were performed according to the Standard Operating Procedures
+                      of the Test facility Quality Assurance Unit. The report was inspected against
+                      the approved study plan and pertinent raw data and accurately reflects the
+                      raw data.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFifty" aria-expanded="true">     
+                  <span class="title">8. STATEMENT OF CONFIDENTIALITY&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFifty" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      <p>The information and data presented in this Study Report is considered as
+                      confidential and proprietary information of the RITEX GmBH and will not be
+                      disclosed to anyone without the expressed or written approval of sponsor,
+                      except to the employees of this test facility wherever necessary and to
+                      persons authorized by law or judicial judgement.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFifty" aria-expanded="true">     
+                  <span class="title">9. STATEMENT OF TEST FACILITY MANAGEMENT&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFifty" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      <p>This is to affirm that for the above-mentioned study, Test Facility
+                      Management has made available all the resources to the study director
+                      necessary for conduct of the present study in compliance with OECD
+                      Principles of GLP for testing of chemicals as specified by international [C
+                      (97)186/Final] legislation and in compliance with ISO/IEC 17025:2017 and
+                      mutually agreed study plan.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFifty" aria-expanded="true">     
+                  <span class="title">10. STUDY SUMMARY&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFifty" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      <p>The toxicity study was performed to assess the potential systemic toxicity and
+                      biocompatibility of a polar extract (Physiological saline) and non-polar extract
+                      (Sesame oil) of “XXXXXXXXXXXXXXXX” by injecting both polar extract (i.e.,
+                      by slow bolus intravenous injection) and non-polar extract (i.e., by slow bolus
+                      intraperitoneal injection) for single administration. Also, this test provides
+                      information on health hazards likely to arise from acute exposure by the
+                      intended clinical route in humans. The study was performed as per the
+                      guideline ISO 10993-11:2017- Biological Evaluation of Medical Devices - Part
+                      11.</p>
+                      <p>Test item thickness is less than 0.5mm, 6cm2/mL was selected for extraction
+                      as per ISO 10993-12:2021 (Annexure 1).</p>
+                      <p>Sterilization of test item: Before extraction test item was autoclaved for 1 hrs at 121.0 °C.</p>
+                      <p>60cm2 of Test Item taken and transferred to the sterile beaker container containing 10 mL of 0.9% NaCl (vehicle). 60cm2
+                      of Test Item taken and transferred to the sterile beaker container containing 10 mL of sesame oil (vehicle).</p>
+                      <p>Similar procedure was followed for polar and non-polar vehicle control without
+                      test item and was subjected to extraction at 37.0°C for a period 73 hrs and 31
+                      mins in orbital shaker incubator at 110 rpm. Before extraction, beakers were
+                      washed with distilled water. Test item in respective Polar and non-polar were
+                      observed for clarity of extraction and found to be clear without any particles
+                      during pre and post-extraction period.</p>
+                      <p>pH of polar and non-polar test item extracts and control was checked using pH
+                      strips and pH was measured between 6-7.</p>
+                      <p>Twenty two Female mice were acclimatized and twenty were randomized into
+                      four group’s viz.G1a-polar control, G2a- polar extract, G1b-non-polar control
+                      and G2b-non-polar extract. Polar and Non-polar control and extracts were
+                      administered by single intravenous and intraperitoneal route, respectively. A
+                      dose volume of 50 mL/kg was used for both intravenous and intraperitoneal
+                      routes of administration. </p>
+                      <p>Animals were observed for Clinical Signs at time intervals of 1 hr, 2 hrs, 3 hrs,
+                      4 hrs, 24 hrs, 48 hrs and 72 hrs post administration.</p>
+                      <p>Body weights were measured on day 1 of acclimatization, Day 1 of dosing
+                      (pre-dose) and on Day 2, Day 3 and Day 4 of the in-life. All the animals were
+                      monitored for mortality, morbidity, abnormal behavior and signs of biological
+                      reactivity during the observation period.</p>
+                      <p>There was no mortalities, morbidity and clinical sings / no abnormal behavior
+                      during the course of the observation period. No treatment related changes in
+                      body weights in any of the mouse tested.</p>
+                      <p class="font-weight-bold">Conclusion:</p>
+                      <p>Based on the above results and under the conditions of this study, the Polar
+                      and Non-polar extract of “Condoms Ritex GELB BANANE” at dose volume of
+                      50 mL/kg did not showed any acute systemic toxicity in Swiss Albino Mice.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseEight" aria-expanded="true">     
+                  <span class="title">11. STUDY COMPLIANCE&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseEight" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      <p>The study was performed with the following:
+                        <li>ISO/IEC 17025:2017, General Requirements for the Competence of Testing and Calibration Laboratories.</li>
+                        <li>OECD Principles of GLP for testing of chemicals as specified by international [C (97)186/Final] legislation.</li>
+                        <li>The Standard Operating Procedures of Test Facility and the mutually agreed Study Plan.</li>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseEight" aria-expanded="true">     
+                  <span class="title">12. STUDY GUIDELINES&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseEight" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      <p>The design of this study was based on the study objective and procedures as
+                      detailed in the study plan, the overall product development strategy for the test
+                      item, and the below mentioned guidelines in principles as applicable:
+                        <li>ISO 10993-11:2017- Biological Evaluation of Medical Devices - Part 11: Tests for Systemic Toxicity (Third edition-Sept 2017).</li>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseNine" aria-expanded="true">     
+                  <span class="title">13. IAEC APPROVAL&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseNine" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      <p>The use of animals for this study has been approved by Liveon Biolabs Private Limited IAEC. IAEC approved Protocol No.: <input type="text" class="form-control no-bord w-25 text-left d-inline" v-model="iaec_no">. Any significant changes to this study plan will be intimated to IAEC and approvals will be sought subsequently if required.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseTen" aria-expanded="true">     
+                  <span class="title">14. ANIMAL WELFARE AND VETERINARY CARE&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseTen" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>Liveon Biolabs Private Limited is an AAALAC international accredited facility and registered with CPCSEA Department of Animal Husbandry and Dairying (DAHD), Ministry of Fisheries, Animal Husbandry and Dairying (MoFAH&D), Government of India. Also, Liveon Biolabs Pvt. Ltd. ensures that experiment/s on animals are performed in accordance with the recommendation of the guidelines for laboratory animal facility 2021. AAALAC certificate included in Annexure 8.</p>
+                    <p>During the conduct of study none of the animals were injured, and no moribund animals were observed.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="true">     
+                  <span class="title">15. SAFETY PRECAUTIONS&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseTwelve" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>The personnel involved in study conduct will be wearing all necessary personnel protective equipment like gloves, head cap and face mask in addition to protective body garments and slippers/shoes to ensure adequate personnel health and safety and to avoid inhalation and skin contact with the test item.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="true">     
+                  <span class="title">16. AMENDMENTS AND DEVIATIONS&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseEleven" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>There was no amendment and deviations occurred during conduct of study. </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="true">     
+                  <span class="title">17. MATERIALS AND METHODS&nbsp;&nbsp; | 17.1 Materials&nbsp;&nbsp; | 17.1.1 Test Item Information&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseThirteen" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>The Test Item Information provided by the sponsor to LBPL is furnished below:</p>
+                    <div class="col-12 mt-2 mb-3">
+                      <table class="table table-bordered">
+                        <tbody>
+                          <tr>
+                            <td>Name of Test Item</td>
+                            <td><input type="text" class="form-control no-bord" v-model="item_name"></td>
+                          </tr>
+                          <tr>
+                            <td>Test Item Code by Test Facility</td>
+                            <td><input type="text" class="form-control no-bord" v-model="item_code"></td>
+                          </tr>
+                          <tr>
+                            <td>Test Item Code by Sponsor</td>
+                            <td><input type="text" class="form-control no-bord" v-model="item_code1"></td>
+                          </tr>
+                          <tr>
+                            <td>Intended use of device in Human</td>
+                            <td><input type="text" class="form-control no-bord" v-model="intended_use"></td>
+                          </tr>
+                          <tr>
+                            <td>Site of Contact in Human Body</td>
+                            <td><input type="text" class="form-control no-bord" v-model="contact_site"></td>
+                          </tr>
+                          <tr>
+                            <td>Duration of contact with Human body</td>
+                            <td><input type="text" class="form-control no-bord" v-model="duration"></td>
+                          </tr>
+                          <tr>
+                            <td>Material Category (As per ISO 10993 Part 1)</td>
+                            <td><input type="text" class="form-control no-bord" v-model="material"></td>
+                          </tr>
+                          <tr>
+                            <td>Weight in g (without packing)</td>
+                            <td><input type="text" class="form-control no-bord" v-model="weight"></td>
+                          </tr>
+                          <tr>
+                            <td>Storage Condition</td>
+                            <td><input type="text" class="form-control no-bord" v-model="storage_cond"></td>
+                          </tr>
+                          <tr>
+                            <td>Batch No. / Lot No.</td>
+                            <td>
+                              <select type="text" class="form-control no-bord" v-model="batch_no">
+                                <option value="">Select</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Date of Mfg.:</td>
+                            <td>
+                              <select type="text" class="form-control no-bord" v-model="mfg_date">
+                                <option value="">Select</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Date of Exp.:</td>
+                            <td>
+                              <select type="text" class="form-control no-bord" v-model="exp_date">
+                                <option value="">Select</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Sterility Status</td>
+                            <td><input type="text" class="form-control no-bord" v-model="sterility"></td>
+                          </tr>
+                          <tr>
+                            <td>Test Item Manufactured by</td>
+                            <td><input type="text" class="form-control no-bord" v-model="mfg_by"></td>
+                          </tr>
+                          <tr>
+                            <td>Test Item Supplied by</td>
+                            <td><input type="text" class="form-control no-bord" v-model="supplied_by"></td>
+                          </tr>
+                          <tr>
+                            <td>Others</td>
+                            <td><input type="text" class="form-control no-bord" v-model="others"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p>The Sponsor is responsible for authenticity of the test item and no further characterization of test item will be performed at LBPL. The test item details mentioned are as per the TIIS provided by the sponsor. The TIIS is included in the Annexure <input type="text" class="form-control d-inline no-bord w-25" v-model="anex_1"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="true">     
+                  <span class="title">17.1.2 Test System&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFourteen" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      <table class="table table-bordered">
+                        <tbody>
+                          <tr>
+                            <td>Animal Species</td>
+                            <td>Mice (Mus musculus)</td>
+                          </tr>
+                          <tr>
+                            <td>Strain</td>
+                            <td>Swiss Albino</td>
+                          </tr>
+                          <tr>
+                            <td>Justification for Selection of Species</td>
+                            <td>Mice are one of the standard laboratory rodent species used for toxicity assessment and recommended globally by many regulatory guidelines and test standard (<input type="text" class="form-control d-inline no-bord w-25" v-model="iso_1">). The strain of Swiss Albino is chosen in this study given its widespread use as a rodent model in the toxicological evaluation.</td>
+                          </tr>
+                          <tr>
+                            <td>Source</td>
+                            <td><input type="text" class="form-control no-bord" v-model="source"></td>
+                          </tr>
+                          <tr>
+                            <td>Age at treatment</td>
+                            <td><input type="text" class="form-control no-bord" v-model="age"></td>
+                          </tr>
+                          <tr>
+                            <td>No. of Groups</td>
+                            <td><input type="text" class="form-control no-bord" v-model="no_groups"></td>
+                          </tr>
+                          <tr>
+                            <td>Total No. of Mice</td>
+                            <td><input type="text" class="form-control no-bord" v-model="no_animals"></td>
+                          </tr>
+                          <tr>
+                            <td>Body weight range at treatment</td>
+                            <td>
+                              <input type="text" class="form-control no-bord" v-model="weight_range">
+                              At the commencement of treatment, the weight variation of mice used will not exceed ± 20% of mean body weight.
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFifteen" aria-expanded="true">     
+                  <span class="title">17.1.3 Test System Management | 17.1.3.1 Animal Room Preparation&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFifteen" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>Prior to housing the animals, the experimental room will be decontaminated by fumigation and microbial load will be checked by settle plate method. The experimental room floor will be mopped daily once.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseSixteen" aria-expanded="true">     
+                  <span class="title">17.1.3.2 Husbandry Conditions&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseSixteen" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>Animals will be housed in an environment-controlled room temperature of <input type="text" class="form-control no-bord d-inline w-25 text-left" v-model="temp"> and relative humidity of 30-70%. The photoperiod will be 12 hrs fluorescent light and 12hrs darkness. Adequate fresh air supply of 12 - 15 air cycles/hr and sound level of less than 80dB will be maintained in the experimental room.</p>
+                    <p>The maximum and minimum temperature and relative humidity in the experimental room will be recorded once daily and will be included in the Study Report and a copy will kept in raw data file.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseSeventeen" aria-expanded="true">     
+                  <span class="title">17.1.3.3 Housing&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseSeventeen" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>A group of five animals will be housed in a standard polycarbonate cages (<input type="text" class="form-control no-bord d-inline w-25 text-left" v-model="cage_size">) with stainless steel mesh top having facilities for holding pelleted food and drinking water with stainless sipper tube. Additionally, tunnels will be provided as an enrichment device to minimizing the animal stress and promote the overall wellbeing of animals.</p>
+                    <p>Steam sterilized corn cob will be provided as bedding material. The latest analysis report of bedding material will be included in the Study Report.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseEighteen" aria-expanded="true">     
+                  <span class="title">17.1.3.4 Diet and Water&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseEighteen" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>AF- 1000M R&M Diet’s mice manufactured by <input type="text" class="form-control d-inline no-bord w-25" v-model="mfg_by_name"> will be provided ad <i>libitum</i> to mice or others to specify in the report.</p>
+                    <p>Deep bore-well water subjected to filtration by reverse osmosis and UV sterilized, will be provided ad <i>libitum</i> to mice in polycarbonate bottles with stainless rubber corked steel sipper tubes.</p>
+                    <p>Based on the latest analytical certificate/s available, there are no known contaminants in the food and water that are expected to interfere with the results of this study. The analysis reports will be included in the Study Report.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseNineteen" aria-expanded="true">     
+                  <span class="title">17.1.4 Test System Preparation | 17.1.4.1 Acclimatization&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseNineteen" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>After examination for good health and the suitability for the study, the mice will be acclimatized at least for 5 days before start of the treatment. During acclimatization animals will be observed at least once daily. Veterinary examination will be performed before selecting the animals for the study.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseTwenty" aria-expanded="true">     
+                  <span class="title">17.1.4.2 Animal Identification&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseTwenty" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>During acclimatization period (Temporary identification), each animal will be identified by tail marking with animal number written on the tail using marker pen. The cages will be identified with cage cards indicating study number, study code, species, strain, sex, acclimatization start and acclimatization end date etc.</p>
+                    <p>During treatment period (Permanent identification), each animal will be identified by body marking using 1 % turmeric solution. The cages will be identified with cage cards indicating study number, animal accession number, study code, species, strain, sex, treatment start date and experiment end date etc.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseTwentyOne" aria-expanded="true">     
+                  <span class="title">17.1.4.3 Randomization and Grouping&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseTwentyOne" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>The animals for the experiment will be weighed and arranged in ascending order of their body weights. Animals will be randomized during acclimatization using body weight stratification method of randomization and are grouped accordingly such that the mean body weight will not vary ± 20 percent among the groups on the Day 1 of administration. Mice with extreme body weights and/or not selected for the treatment will be excluded. Grouping will be done during the acclimatization period.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseTwentyThree" aria-expanded="true">     
+                  <span class="title">17.2 Methods | 17.2.1 Experimental Procedures | 17.2.1.1 Study Design&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseTwentyThree" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>The following study design will be adopted for the study:</p>
+                    <div class="col-12 mt-2 mb-3">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th rowspan="2">Group</th>
+                            <th rowspan="2">Treatment Description</th>
+                            <th rowspan="2">Color of Cage Cards</th>
+                            <th rowspan="2">Dose volume (mL/kg)</th>
+                            <th rowspan="2">Route of Administration</th>
+                            <th rowspan="2">No. of Mice and Sex</th>
+                            <th colspan="2">Animal Accession No.</th>
+                          </tr>
+                          <tr>
+                            <th>From</th>
+                            <th>To</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="group"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="desc"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="cage_color"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="dose_vol"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="route"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="animal_nos"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="from"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="to"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="group"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="desc"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="cage_color"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="dose_vol"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="route"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="animal_nos"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="from"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="to"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="group"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="desc"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="cage_color"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="dose_vol"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="route"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="animal_nos"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="from"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="to"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="text" class="form-control no-bord" v-model="group"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="desc"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="cage_color"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="dose_vol"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="route"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="animal_nos"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="from"></td>
+                            <td><input type="text" class="form-control no-bord" v-model="to"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p><b>Note:</b> IV: Intravenous; IP: Intraperitoneal; M-Male; F-Female. a- Polar, b- Non-polar</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseTwentyTwo" aria-expanded="true">     
+                  <span class="title">17.2.1.2 Routes of Administration and Justification for Route of Administration&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseTwentyTwo" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>Intravenous and intraperitoneal routes are selected for polar and non-polar extracts respectively. Intravenous route is selected for polar extract to mimic the enteral route of test device in clinical use. Since non-polar extracts cannot be administered through intravenous route, the alternatively intraperitoneal route is selected for non-polar extract.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseTwentyFour" aria-expanded="true">     
+                  <span class="title">17.2.1.3 Justification for Dose Volume and Dosing Regimen&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseTwentyFour" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>Maximum dose volumes of 50 mL/kg of polar extract and polar Vehicle through intravenous route. A maximum dose volume of 50 mL/kg of non-polar extract and non-polar Vehicle will be administered through intraperitoneal route.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseTwentyFive" aria-expanded="true">     
+                  <span class="title">17.2.1.4 Selection and Justification for the Choice of Extraction Medium&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseTwentyFive" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">  
+                    <p>The commercially available 0.9% w/v sodium chloride for injection
+                    (Normal saline) for polar extraction and sesame oil for non-polar
+                    extraction and respective vehicle control are selected as per the guideline
+                    ISO 10993 “Biological Evaluation of Medical Devices”, Part 12 (Sample
+                    preparation and reference materials).</p>
+                    <p>Sodium Chloride Injection (NaCl) – Polar vehicle
+                    (Batch No: 1124208, Manufacture Date: 09/2022, Expiry Date: 08/2025
+                    Mfd by: Acculife Healthcare Pvt Ltd)</p>]
+                    <p>Sesame oil (so) – Non-Polar vehicle
+                    (Batch No: G/P1, Manufacture Date: 06/09/2022, Expiry Date: 05/12/2023
+                    Mfd by: KLF Nirmal Industries (P) Limited)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseTwentySix" aria-expanded="true">     
+                  <span class="title">17.3 Test Procedure | 17.3.1 Preparation of Test Item Extract&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseTwentySix" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      <textarea class="form-control no-bord text-left" rows="4" v-model="test_extract"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFortyNine" aria-expanded="true">     
+                  <span class="title">17.3.2 pH&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFortyNine" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>pH value for extraction was checked using strips pre and post-extraction details below:</p>
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Vehicle</th>
+                            <th>Appearance / Clarity</th>
+                            <th>Pre Extraction pH range</th>
+                            <th>Post Extraction pH range</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Polar Control</td>
+                            <td>Clear</td>
+                            <td>6-7</td>
+                            <td>6-7</td>
+                          </tr>
+                          <tr>
+                            <td>Polar Test Item Extract</td>
+                            <td>Clear</td>
+                            <td>6-7</td>
+                            <td>6-7</td>
+                          </tr>
+                          <tr>
+                            <td>Non-polar Control </td>
+                            <td>Clear</td>
+                            <td>6-7</td>
+                            <td>6-7</td>
+                          </tr>
+                          <tr>
+                            <td>Non-polar Test Item Extract</td>
+                            <td>Clear</td>
+                            <td>6-7</td>
+                            <td>6-7</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseTwentySeven" aria-expanded="true">     
+                  <span class="title">17.3.3 Treatment&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseTwentySeven" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>Animals will be grouped into 4 groups comprise of 5 animals each. Vehicle extract of test item will be injected intravenously into G2a group animals and sesame oil extract of test item will be injected into G2b group animals through intraperitoneal route. G1a and G1b group animals will be injected with normal saline and sesame oil (vehicle control) through intravenous and intraperitoneal routes respectively as single time administration. After injection, all animals will be observed periodically till 72 hours for any toxic effects.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseThirtyOne" aria-expanded="true">     
+                  <span class="title">18. OBSERVATIONS | 18.1 Mortality, Morbidity and Clinical Signs&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseThirtyOne" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>Animals were observed for clinical signs daily once, morbidity and
+                    mortality daily twice. Animals were observed at time intervals of 1 hr, 24
+                    hrs, 48 hrs and 72 hrs post administration.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseThirtyTwo" aria-expanded="true">     
+                  <span class="title">18.2 Body Weight&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseThirtyTwo" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>Individual animal body weights were measured on the day of acclimatization, on Days 1 (before dosing), 2, 3 and at the end of the inlife / termination (day 4).</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseThirtyFive" aria-expanded="true">     
+                  <span class="title">19. EVALUATION CRITERIA&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseThirtyFive" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>As per the criteria, all animals observed and detailed as below:</p>
+                    <p>None of the animals treated with the test sample/s showed any biological
+                    reactivity when compared to vehicle control animals. No mortality,
+                    morbidity and no body weight loss. Hence, test was not repeated. </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseThirtySix" aria-expanded="true">     
+                  <span class="title">20. ANIMAL EUTHANASIA AND DISPOSAL&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseThirtySix" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      <p>After the completion of the experiment, the animals will be sacrificed using carbon dioxide / isoflurane asphyxiation and the carcasses will be sent for disposal through Medicare Environmental Management Pvt. Ltd.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFiftyTwo" aria-expanded="true">     
+                  <span class="title">21. RESULTS | 21.1 Mortality, Morbidity and Clinical Signs&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFiftyTwo" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>Refer to Table 1 and Appendix 1</p>
+                    <p>There was no mortality, morbidity ad no clinical signs observed in any of the animal throughout the experimental period. </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFiftyThree" aria-expanded="true">     
+                  <span class="title">21.2 Body Weight&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFiftyThree" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>Refer to Table 2  to 3 and Appendix 2</p>
+                    <p>There was no body weight loss observed during the course of observation period.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseThirtySeven" aria-expanded="true">     
+                  <span class="title">22. DATA COMPILATION&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseThirtySeven" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>All individual animal data will be presented in appendices and / summarized and presented in tables. All findings will be presented in the report as per the standard reporting format.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFiftyFour" aria-expanded="true">     
+                  <span class="title">23. CONCLUSION&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFiftyFour" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>Based on the above results and under the conditions of this study, the
+                    Polar and Non-polar extracts of “Condoms Ritex GELB BANANE” at dose
+                    volume of 50 mL/kg did not showed any Acute Systemic Toxicity in Swiss
+                    Albino Mice.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseForty" aria-expanded="true">     
+                  <span class="title">24. STUDY REPORT DISTRIBUTION&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseForty" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      <p>The Final Study Plan will be distributed as follows:<br> 
+                        a) Copy No. 1/2 – Sponsor
+                        b) Copy No. 2/2 – Archives, Liveon Biolabs Private Limited.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFortyOne" aria-expanded="true">     
+                  <span class="title">25. ARCHIVING&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFortyOne" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      <p>All study-related records, study plan, raw data, final report, Amendment and Deviation (if any) and the test item sample will be maintained in the archives of Liveon Biolabs Private Limited for <input type="text" class="form-control d-inline no-bord w-25" v-model="archive_1"> years from the date of study completion. All the records and test item will be handled according to OECD Principles of GLP for testing of chemicals as specified by international <input type="text" class="form-control d-inline no-bord w-25" v-model="archive_2"> legislation. After the completion of archiving period, the test facility management will coordinate with the sponsor for further course of action on archived material.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFortyTwo" aria-expanded="true">     
+                  <span class="title">26. REFERENCES&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFortyTwo" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3">
+                      <p>
+                        <li>ISO/IEC 17025:2017, General Requirements for the Competence of Testing and Calibration Laboratories.</li>
+                        <li>OECD Principles of GLP for testing of chemicals as specified by international [(C (97)186/Final] legislation.</li>
+                        <li>ISO 10993-1:2018-Biological Evaluation of Medical Devices-Part-1: Evaluation and testing within a risk management process.</li>
+                        <li>ISO 10993-2:2006-Biological Evaluation of Medical Devices-Part 2: Animal welfare requirements.</li>
+                        <li>Standard Operating Procedure of Test Facility and the mutually agreed Study Plan</li>
+                        <li>ISO 10993-11:2017 :Biological Evaluation of Medical Devices, Part 11: Tests for systemic toxicity (Third edition-Sept 2017)</li>
+                        <li>ISO 10993-12:2021: Biological evaluation of medical devices, Part 12: Sample preparation and reference materials.</li>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFiftyFive" aria-expanded="true">     
+                  <span class="title">Table 1. Summary of Mortality, Morbidity and Clinical Signs&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFiftyFive" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>Refer to Appendix 1</p>
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th rowspan="2">Group</th>
+                            <th rowspan="2">Treatment</th>
+                            <th rowspan="2">No. of Animals</th>
+                            <th rowspan="2">Sex</th>
+                            <th colspan="4">Clinical Signs Observations</th>
+                            <th rowspan="2">Mortality and Morbidity</th>
+                          </tr>
+                          <tr>
+                            <th>1 hr</th>
+                            <th>24 hrs</th>
+                            <th>48 hrs</th>
+                            <th>72 hrs</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>G1a</td>
+                            <td>Polar Control</td>
+                            <td>5</td>
+                            <td rowspan="4">Female</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0/5</td>
+                          </tr>
+                          <tr>
+                            <td>G2a</td>
+                            <td>Polar Extract</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0/5</td>
+                          </tr>
+                          <tr>
+                            <td>G1b</td>
+                            <td>Non-Polar Control</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0/5</td>
+                          </tr>
+                          <tr>
+                            <td>G2b</td>
+                            <td>Non-Polar Extract</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0/5</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFiftySix" aria-expanded="true">     
+                  <span class="title">Table 2.  Summary of Body Weight (g)&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFiftySix" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>Refer to Appendix 2</p>
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th rowspan="2">Group</th>
+                            <th rowspan="2">Vehicle</th>
+                            <th rowspan="2">Dose mL/kg</th>
+                            <th rowspan="2">No. of Animals</th>
+                            <th rowspan="2">Sex</th>
+                            <th colspan="4">Body Weight (g)</th>
+                          </tr>
+                          <tr>
+                            <th>Day 1</th>
+                            <th>Day 2</th>
+                            <th>Day 3</th>
+                            <th>Day 4</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td rowspan="2">G1a</td>
+                            <td rowspan="2">Polar Control</td>
+                            <td rowspan="2">50</td>
+                            <td rowspan="2">5</td>
+                            <td rowspan="8">Female</td>
+                            <td>22.90</td>
+                            <td>23.02</td>
+                            <td>23.26</td>
+                            <td>23.42</td>
+                          </tr>
+                          <tr>
+                            <td>0.99</td>
+                            <td>0.94</td>
+                            <td>1.02</td>
+                            <td>1.01</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="2">G2a</td>
+                            <td rowspan="2">Polar Extract</td>
+                            <td rowspan="2">50</td>
+                            <td rowspan="2">5</td>
+                            <td>22.19</td>
+                            <td>22.29</td>
+                            <td>22.46</td>
+                            <td>22.61</td>
+                          </tr>
+                          <tr>
+                            <td>0.51</td>
+                            <td>0.49</td>
+                            <td>0.49</td>
+                            <td>0.51</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="2">G1b</td>
+                            <td rowspan="2">Non-Polar Control</td>
+                            <td rowspan="2">50</td>
+                            <td rowspan="2">5</td>
+                            <td>21.70</td>
+                            <td>21.83</td>
+                            <td>21.93</td>
+                            <td>22.02</td>
+                          </tr>
+                          <tr>
+                            <td>0.84</td>
+                            <td>0.83</td>
+                            <td>0.86</td>
+                            <td>0.88</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="2">G2b</td>
+                            <td rowspan="2">Non-Polar Extract</td>
+                            <td rowspan="2">50</td>
+                            <td rowspan="2">5</td>
+                            <td>22.00</td>
+                            <td>22.14</td>
+                            <td>22.27</td>
+                            <td>22.38</td>
+                          </tr>
+                          <tr>
+                            <td>0.62</td>
+                            <td>0.62</td>
+                            <td>0.60</td>
+                            <td>0.55</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <p>Values were expressed as Mean ± SD</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFiftySeven" aria-expanded="true">     
+                  <span class="title">Table 3.  Summary of Body Weight Gain (%)&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFiftySeven" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <p>Refer to Appendix 2</p>
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Group</th>
+                            <th>Vehicle</th>
+                            <th>Dose mL/kg</th>
+                            <th>No. of Animals</th>
+                            <th>Sex</th>
+                            <th>Body Weight Gain (%)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td rowspan="2">G1a</td>
+                            <td rowspan="2">Polar Control</td>
+                            <td rowspan="2">50</td>
+                            <td rowspan="2">5</td>
+                            <td rowspan="8">Female</td>
+                            <td>2.29</td>
+                          </tr>
+                          <tr>
+                            <td>0.74</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="2">G2a</td>
+                            <td rowspan="2">Polar Extract</td>
+                            <td rowspan="2">50</td>
+                            <td rowspan="2">5</td>
+                            <td>1.86</td>
+                          </tr>
+                          <tr>
+                            <td>0.66</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="2">G1b</td>
+                            <td rowspan="2">Non-Polar Control</td>
+                            <td rowspan="2">50</td>
+                            <td rowspan="2">5</td>
+                            <td>1.43</td>
+                          </tr>
+                          <tr>
+                            <td>0.17</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="2">G2b</td>
+                            <td rowspan="2">Non-Polar Extract</td>
+                            <td rowspan="2">50</td>
+                            <td rowspan="2">5</td>
+                            <td>1.74</td>
+                          </tr>
+                          <tr>
+                            <td>0.44</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <p>Values were expressed as Mean ± SD</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFiftyEight" aria-expanded="true">     
+                  <span class="title">Appendix 1. INDIVIDUAL ANIMAL CLINICAL SIGNS&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFiftyEight" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th rowspan="2">Group</th>
+                            <th rowspan="2">Treatment</th>
+                            <th rowspan="2">Sex</th>
+                            <th rowspan="2">Animal No.</th>
+                            <th colspan="4">Clinical Signs</th>
+                          </tr>
+                          <tr>
+                            <th>1hr</th>
+                            <th>24hrs</th>
+                            <th>48hrs</th>
+                            <th>72hrs</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td rowspan="5">G1a</td>
+                            <td rowspan="5">Polar Vehicle Control</td>
+                            <td rowspan="20">Female</td>
+                            <td>Ma6333</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6334</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6335</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6336</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6337</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="5">G2a</td>
+                            <td rowspan="5">Polar Test Item Extract</td>
+                            <td>Ma6338</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6339</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6340</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6341</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6342</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="5">G1b</td>
+                            <td rowspan="5">Non Polar Vehicle Control</td>
+                            <td>Ma6343</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6344</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6345</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6346</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6347</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="5">G2b</td>
+                            <td rowspan="5">Non-Polar Test Item Extract</td>
+                            <td>Ma6348</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6349</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6350</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6351</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6352</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <p>1 : Normal</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFiftyNine" aria-expanded="true">     
+                  <span class="title">Appendix 2. Individual Animal Body Weights (G)&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFiftyNine" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th rowspan="2">Group</th>
+                            <th rowspan="2">Treatment</th>
+                            <th rowspan="2">Sex</th>
+                            <th rowspan="2">Animal No.</th>
+                            <th colspan="4">Clinical Signs</th>
+                          </tr>
+                          <tr>
+                            <th>1hr</th>
+                            <th>24hrs</th>
+                            <th>48hrs</th>
+                            <th>72hrs</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td rowspan="5">G1a</td>
+                            <td rowspan="5">Polar Vehicle Control</td>
+                            <td rowspan="20">Female</td>
+                            <td>Ma6333</td>
+                            <td>21.65</td>
+                            <td>21.79</td>
+                            <td>21.88</td>
+                            <td>22.03</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6334</td>
+                            <td>22.19</td>
+                            <td>22.40</td>
+                            <td>22.67</td>
+                            <td>22.81</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6335</td>
+                            <td>23.23</td>
+                            <td>23.40</td>
+                            <td>23.74</td>
+                            <td>24.01</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6336</td>
+                            <td>23.26</td>
+                            <td>23.31</td>
+                            <td>23.43</td>
+                            <td>23.67</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6337</td>
+                            <td>24.17</td>
+                            <td>24.20</td>
+                            <td>24.56</td>
+                            <td>24.60</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="5">G2a</td>
+                            <td rowspan="5">Polar Test Item Extract</td>
+                            <td>Ma6338</td>
+                            <td>21.65</td>
+                            <td>21.79</td>
+                            <td>21.88</td>
+                            <td>22.03</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6334</td>
+                            <td>22.19</td>
+                            <td>22.40</td>
+                            <td>22.67</td>
+                            <td>22.81</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6335</td>
+                            <td>23.23</td>
+                            <td>23.40</td>
+                            <td>23.74</td>
+                            <td>24.01</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6336</td>
+                            <td>23.26</td>
+                            <td>23.31</td>
+                            <td>23.43</td>
+                            <td>23.67</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6337</td>
+                            <td>24.17</td>
+                            <td>24.20</td>
+                            <td>24.56</td>
+                            <td>24.60</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="5">G1b</td>
+                            <td rowspan="5">Non Polar Vehicle Control</td>
+                            <td>Ma6343</td>
+                            <td>21.65</td>
+                            <td>21.79</td>
+                            <td>21.88</td>
+                            <td>22.03</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6334</td>
+                            <td>22.19</td>
+                            <td>22.40</td>
+                            <td>22.67</td>
+                            <td>22.81</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6335</td>
+                            <td>23.23</td>
+                            <td>23.40</td>
+                            <td>23.74</td>
+                            <td>24.01</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6336</td>
+                            <td>23.26</td>
+                            <td>23.31</td>
+                            <td>23.43</td>
+                            <td>23.67</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6337</td>
+                            <td>24.17</td>
+                            <td>24.20</td>
+                            <td>24.56</td>
+                            <td>24.60</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="5">G2b</td>
+                            <td rowspan="5">Non-Polar Test Item Extract</td>
+                            <td>Ma6348</td>
+                            <td>21.65</td>
+                            <td>21.79</td>
+                            <td>21.88</td>
+                            <td>22.03</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6334</td>
+                            <td>22.19</td>
+                            <td>22.40</td>
+                            <td>22.67</td>
+                            <td>22.81</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6335</td>
+                            <td>23.23</td>
+                            <td>23.40</td>
+                            <td>23.74</td>
+                            <td>24.01</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6336</td>
+                            <td>23.26</td>
+                            <td>23.31</td>
+                            <td>23.43</td>
+                            <td>23.67</td>
+                          </tr>
+                          <tr>
+                            <td>Ma6337</td>
+                            <td>24.17</td>
+                            <td>24.20</td>
+                            <td>24.56</td>
+                            <td>24.60</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion mt-4" id="accordionExample">
+              <div class="card rounded">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFortyFour" aria-expanded="true">     
+                  <span class="title">Annexure 1. Standard Surface Areas and Extract Liquid Volumes&nbsp;&nbsp;</span>
+                  <span class="accicon"><font-awesome-icon icon="fa-solid fa-angle-down" type="button" /></span>
+                </div>
+                <div id="collapseFortyFour" class="collapse" data-parent="#accordionExample">
+                  <div class="row ml-2 mr-2 mt-3">
+                    <div class="col-12 mt-2 mb-3 text-center">
+                      <img src="../../assets/draftast_img1.png">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <center>
+              <button type="button" class="btn btn-primary mt-3 mb-3 save" @click="save">SAVE</button>
+            </center>
+
+          </div>
+        </div>    
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<script>
+import axios from 'axios';
+export default {
+  name: 'Study_OngoingDashboard',
+  components: {
+  },
+  mounted: function() {
+    this.loaddetailsTable()
+  },
+  data() {
+    return {
+      details: {},
+      title1: "ACUTE SYSTEMIC TOXICITY TEST OF POLAR AND NON-POLAR EXTRACTS OF XXXX IN SWISS ALBINO MICE",
+      title2: "ISO 10993-11:2017",
+      study_no: "LBPL/G-XXXX (TX)",
+      study_code: "AST",
+      study_dir: "Ms. Zehra Khanum",
+      sponser: "XXXX",
+      obj: "acute systemic toxicity and biocompatibility of a polar extract (Physiological saline) and non-polar extract (Sesame oil) of “XXXX”",
+      study_title1: "Acute Systemic Toxicity Test of Polar and Non-Polar Extracts of XXXX in Swiss Albino Mice.",
+      study_no1: "LBPL/G-XXXX (TX)",
+      study_code1: "AST",
+      ulr_no1: "XXXX",
+      sponsor1: "XXXX",
+      study_director1: "Ms. Zehra Khanum",
+      study_vet1: "Dr. Sunkad Meghana",
+      sponsor_rep1: "XXXX",
+      monitor1: "XXXX",
+      study_start_date: "XX/XX/XXXX",
+      exp_start_date: "XX/XX/XXXX",
+      acc: "XX/XX/XXXX",
+      treat_start_date: "XX/XX/XXXX",
+      exp_end_date: "XX/XX/XXXX",
+      draft_rep: "Latest by XX/XX/XXXX",
+      study_end_date: "Latest by XX/XX/XXXX or within a week after receiving comments for draft report from sponsor. ",
+      short1: "AAALAC",
+      full1: "Association for Assessment and Accreditation of Laboratory Animal Care",
+      short2: "CPCSEA",
+      full2: "Committee for the Purpose of Control and Supervision of Experiments on Animals",
+      short3: "Cm",
+      full3: "Centimeter",
+      short4: "dB",
+      full4: "decibel",
+      short5: "FCA",
+      full5: "Freund’s Complete Adjuvant",
+      short6: "hr/h(s)",
+      full6: "Hour (s)",
+      short7: "IAEC",
+      full7: "Institutional Animal Ethics Committee",
+      short8: "ISO",
+      full8: "International Organization for Standardization",
+      short9: "IEC",
+      full9: "International Electrotechnical Commission",
+      short10: "GLP",
+      full10: "Good Laboratory Practice",
+      short11: "g",
+      full11: "Gram",
+      short12: "LBPL",
+      full12: "Liveon Biolabs Private Limited",
+      short13: "mL",
+      full13: "Millilitre",
+      short14: "No.",
+      full14: "Number",
+      short15: "OECD",
+      full15: "Organization for Economic Co-operation and Development",
+      short16: "AST",
+      full16: "Acute Systemic Toxicity",
+      short17: "rpm",
+      full17: "Revolutions Per Minute",
+      short18: "SDS",
+      full18: "Sodium Dodecyl Sulphate",
+      short19: "Sign.",
+      full19: "Signature",
+      short20: "TIIS",
+      full20: "Test Item Information Sheet",
+      short21: "UV",
+      full21: "Ultraviolet",
+      short22: "">"",
+      full22: "Less than",
+      iaec_no: "LBPL-IAEC-035-06/2022",
+      item_name: "XXXX",
+      item_code: "XXXX",
+      item_code1: "XXXX",
+      intended_use: "XXXX",
+      contact_site: "XXXX",
+      duration: "XXXX",
+      material: "XXXX",
+      weight: "XXXX",
+      storage_cond: "XXXX",
+      batch_no: "XXXX",
+      mfg_date: "XXXX",
+      exp_date: "XXXX",
+      sterility: "XXXX",
+      mfg_by: "XXXX",
+      supplied_by: "XXXX",
+      others: "XXXX",
+      anex_1: "2",
+      iso_1: "ISO 10993-11:2017",
+      source: "In-house breed animals",
+      age: "6-8 weeks (exact age will be provided in the report)",
+      no_groups: "04 (5 animals /group)",
+      no_animals: "20 Males / Females (Female will be nulliparous and non-pregnant)",
+      weight_range: "17-26 g (Exact body weight will be provided in the report).",
+      temp: "22 ± 3 °C",
+      cage_size: "Approximate Cage Size: Length 29 X Breadth 22 X Height 14cm",
+      mfg_by_name: "Krishna Valley Agrotech LLP",
+      test_extract: "est item thickness is less than 0.5mm, 6cm2/mL will be selected for extraction as per ISO 10993-12:2021 (Annexure 1). The extraction condition will be selected (37 ± 1) °C for (72 ± 2) hrs.Example of preparation for 10 mL: 60cm2 of test item will be taken and transferred to the sterilized beaker containing 10 mL of 0.9% NaCl (polar vehicle) Similarly, 60cm2 of test item will be taken and transferred to the sterilized beaker containing 10 mL of sesame oil (non-polar vehicle). Similar procedure will be followed for polar and non-polar vehicle control without test item. All the (polar and non-polar test item extracts and polar and non-polar vehicle control) beakers/containers will be subjected to extraction at 37 ± 1°C for a period 72 ± 2 hrs with continuous agitation in orbital shaker incubator at 110(±2) rpm. Similar extraction procedures will also be applicable for respective polar (0.9% w/v Sodium chloride) and non-polar (Sesame oil) vehicle control without test item. Pre and post extraction condition for the appearance of extracts will be checked. The extract will be filtered if any particulates observed using syringe filters / filter papers. The extracts will be prepared under aseptic conditions. Note: pH of extracts will be checked for pre and post-extraction and will be mentioned in the raw data file and Study report.",
+      archive_1: "9",
+      archive_2: "[(C (97)186/Final]",
+      study_no2: "LBPL/G-XXXX (TX)",
+      date_app: "XX/XX/2022",
+      study_dir1: "Ms. Zehra Khanum",
+      sign1: "",
+      sign2: "",
+      sign3: "",
+      sponsor_name: "WRP ASIA PACIFIC SDN BHD",
+      spons_rep: "XXXX",
+      sign4: "",
+      monitor_sci: "XXXX",
+      sign5: ""
+    }
+  },
+  methods: {
+    loaddetailsTable: function(){
+      let uri = "/api/dastplan/" + this.$route.params.id;
+      axios.get(uri).then((res) => {
+        this.details = res.data.data;
+      })
+      .catch(()=>{
+        console.log("Something Went Wrong");
+      })
+    },
+    save: function() {
+      let uri = "/api/dastplan/" + this.$route.params.id;
+      axios.post(uri, {
+        title1: this.title1,
+        title2: this.title2,
+        study_no: this.study_no,
+        study_code: this.study_code,
+        study_dir: this.study_dir,
+        sponser: this.sponser,
+        obj: this.obj,
+        study_title1: this.study_title1,
+        study_no1: this.study_no1,
+        study_code1: this.study_code1,
+        ulr_no1: this.ulr_no1,
+        sponsor1: this.sponsor1,
+        study_director1: this.study_director1,
+        study_vet1: this.study_vet1,
+        sponsor_rep1: this.sponsor_rep1,
+        monitor1: this.monitor1,
+        study_start_date: this.study_start_date,
+        exp_start_date: this.exp_start_date,
+        acc: this.acc,
+        treat_start_date: this.treat_start_date,
+        exp_end_date: this.exp_end_date,
+        draft_rep: this.draft_rep,
+        study_end_date: this.study_end_date,
+        short1: this.short1,
+        full1: this.full1,
+        short2: this.short2,
+        full2: this.full2,
+        short3: this.short3,
+        full3: this.full3,
+        short4: this.short4,
+        full4: this.full4,
+        short5: this.short5,
+        full5: this.full5,
+        short6: this.short6,
+        full6: this.full6,
+        short7: this.short7,
+        full7: this.full7,
+        short8: this.short8,
+        full8: this.full8,
+        short9: this.short9,
+        full9: this.full9,
+        short10: this.short10,
+        full10: this.full10,
+        short11: this.short11,
+        full11: this.full11,
+        short12: this.short12,
+        full12: this.full12,
+        short13: this.short13,
+        full13: this.full13,
+        short14: this.short14,
+        full14: this.full14,
+        short15: this.short15,
+        full15: this.full15,
+        short16: this.short16,
+        full16: this.full16,
+        short17: this.short17,
+        full17: this.full17,
+        short18: this.short18,
+        full18: this.full18,
+        short19: this.short19,
+        full19: this.full19,
+        short20: this.short20,
+        full20: this.full20,
+        short21: this.short21,
+        full21: this.full21,
+        short22: this.short22,
+        full22: this.full22,
+        iaec_no: this.iaec_no,
+        item_name: this.item_name,
+        item_code: this.item_code,
+        item_code1: this.item_code1,
+        intended_use: this.intended_use,
+        contact_site: this.contact_site,
+        duration: this.duration,
+        material: this.material,
+        weight: this.weight,
+        storage_cond: this.storage_cond,
+        batch_no: this.batch_no,
+        mfg_date: this.mfg_date,
+        exp_date: this.exp_date,
+        sterility: this.sterility,
+        mfg_by: this.mfg_by,
+        supplied_by: this.supplied_by,
+        others: this.others,
+        anex_1: this.anex_1,
+        iso_1: this.iso_1,
+        source: this.source,
+        age: this.age,
+        no_groups: this.no_groups,
+        no_animals: this.no_animals,
+        weight_range: this.weight_range,
+        temp: this.temp,
+        cage_size: this.cage_size,
+        mfg_by_name: this.mfg_by_name,
+        test_extract: this.test_extract,
+        archive_1: this.archive_1,
+        archive_2: this.archive_2,
+        study_no2: this.study_no2,
+        date_app: this.date_app,
+        study_dir1: this.study_dir1,
+        sign1: this.sign1,
+        sign2: this.sign2,
+        sign3: this.sign3,
+        sponsor_name: this.sponsor_name,
+        spons_rep: this.spons_rep,
+        sign4: this.sign4,
+        monitor_sci: this.monitor_sci,
+        sign5: this.sign5
+      }).then((res) => {
+          alert("Successfully Saved!");
+          window.location.href='/studynewdash';
+      }).catch(()=> {
+          alert("Something Went Wrong!");
+          window.location.href='/studynewdash';
+      })
+    }
+  }
+}
+</script>
+
+<style scoped>
+.app-sidebar {
+  width: 220px;
+  min-width: 220px;
+}
+
+.fixed-sidebar .app-main .app-main__outer {
+  padding-left: 220px;
+}
+
+.vertical-nav-menu li a.mm-active {
+  color: #343a40;
+  background: rgba(32, 55, 107, 0.12);
+  font-weight: 700;
+}
+
+.logout {
+  height: 20px;
+}
+
+.text-primary {
+  color: #4161A0 !important;
+}
+
+.text-warning {
+  color: #FCAC62 !important;
+}
+
+.text-success {
+  color: #1B9A3F !important;
+}
+
+.bg-light {
+  background-color: #fff !important;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.btn-primary {
+  background-color: #4161A0 !important;
+  border: #4161A0 !important;
+}
+
+.save {
+  background-color: #63A94B !important;
+  border: #63A94B !important;
+}
+
+.no-bord {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.no-bord:hover, .no-bord:focus {
+  box-shadow: none;
+}
+</style>

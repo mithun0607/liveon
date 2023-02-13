@@ -1,0 +1,66 @@
+{
+  "name": "Biolabs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/vue-fontawesome": "^3.0.2",
+    "@syncfusion/ej2-vue-schedule": "^20.4.43",
+    "axios": "^1.1.3",
+    "body-parser": "^1.20.1",
+    "bootstrap": "^5.2.2",
+    "bootstrap-vue": "^2.23.1",
+    "cookie-session": "^2.0.0",
+    "core-js": "^3.8.3",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "html-loader": "^4.2.0",
+    "html-to-pdfmake": "^2.4.12",
+    "html2pdf.js": "^0.9.3",
+    "jspdf": "^2.5.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "pdfmake": "^0.2.7",
+    "vue": "^3.2.41",
+    "vue-class-component": "^8.0.0-rc.1",
+    "vue-html2canvas": "^0.0.4",
+    "vue-html2pdf": "^1.8.0",
+    "vue-router": "^4.0.13",
+    "vue3-html2pdf": "^1.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}
